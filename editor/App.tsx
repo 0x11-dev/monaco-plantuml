@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import * as monaco from "monaco-editor";
 import { PUmlExtension } from "../src";
 
-const plantumlEncoder = require("plantuml-encoder");
+import * as  plantumlEncoder from  "plantuml-encoder";
+
 
 function App() {
   const editorRef = useRef<HTMLDivElement>(null);
@@ -28,9 +29,9 @@ function App() {
   }, []);
 
   return (
-    <div style={{ display: "flex" }}>
-      <div ref={editorRef} style={{ width: "50%", height: "100vh" }}></div>
-      <div style={{ width: "50%" }}>
+    <div style={{ display: "flex", width: "100vw",  maxWidth: "100vw" , height: "100vh"}}>
+      <div ref={editorRef} style={{  height: "100vh" , flex: 1}}></div>
+      <div style={{ flex:1, overflow: "auto"}}>
         <img src={imgUri}></img>
       </div>
     </div>
